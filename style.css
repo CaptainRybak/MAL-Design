@@ -1509,7 +1509,7 @@ div#fancybox-overlay {
  */
 
 div#cover-image-container:after {
-  content: "animelist";
+  content: "";
 }
 
 .data.type:after {
@@ -1572,10 +1572,51 @@ span.score-label.score-na {
   -webkit-text-stroke: 0px transparent !important; /* No outline, just shadow */
   text-shadow: 0 0 10px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,1), 4px 4px 4px rgba(0,0,0,0.5);
   letter-spacing: -2px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 } /* Your chosen outline color */
   -webkit-text-fill-color: #ffffff !important; /* Your chosen fill color */
   font-size: 70px;
   font-weight: bold;
+}
+
+/* --- MANGA LIST PROGRESS STYLE (MATCHES ANIME EPISODES) --- */
+
+/* 1. Set the background to the green color used for 'Watching/Reading' */
+.data.chapters, 
+.data.volumes {
+  position: absolute !important;
+  top: 5px !important;
+  right: 5px !important;
+  line-height: 25px !important;
+  background-color: var(--watching) !important; /* Uses the green variable */
+  font-family: Roboto, sans-serif !important;
+  font-weight: bold !important;
+  height: 25px !important;
+  padding: 0 5px !important;
+  z-index: 5 !important;
+}
+
+/* 2. Fix the text color inside the progress box */
+.data.chapters span, 
+.data.volumes span,
+.data.chapters a,
+.data.volumes a {
+  color: #eee !important;
+  font-size: 10px !important;
+}
+
+/* 3. Add 'vol' or 'ch' label after the numbers to match the 'ep' style */
+.data.chapters span:last-of-type:after {
+  content: " ch" !important;
+}
+
+.data.volumes span:last-of-type:after {
+  content: " vol" !important;
+}
+
+/* 4. Hide the extra icons to keep it clean */
+.icon-add-chapter i, 
+.icon-add-volume i {
+  display: none !important;
 }
